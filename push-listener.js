@@ -6,7 +6,7 @@ function openOrFocusPage (targetURL) {
       includeUncontrolled: true
     })
     .then((windowClients) => {
-      const urlToOpen = new URL(targetURL, self.location.origin).href
+      const urlToOpen = new URL(targetURL, self.location.href).href
       const matchingClient = windowClients.find(windowClient => windowClient.url === urlToOpen)
       return matchingClient ? matchingClient.focus() : self.clients.openWindow(urlToOpen)
     })
