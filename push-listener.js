@@ -29,7 +29,7 @@ self.addEventListener('push', function (event) {
 self.addEventListener('notificationclick', function (event) {
   if (event.notification.data) {
     const {data} = event.notification
-    const targetURL = `./#/queue/${data.keys.queue}`
+    const targetURL = `./#/${data.keys.queue}`
     event.waitUntil(openOrFocusPage(targetURL))
   } else {
     console.log('This push event has no data.')
